@@ -1,0 +1,36 @@
+<svg viewBox="0 0 512 512" width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Home-screen icon: the reading buddy on a gold puck, black jersey background.
+       Square and full-bleed so Android can mask it; the face stays inside the
+       central safe zone. Rebuild PNGs with: tools/make-icons.sh -->
+  <rect width="512" height="512" fill="#0a0a0a"/>
+  <circle cx="256" cy="256" r="196" fill="#fcb514"/>
+  <circle cx="256" cy="256" r="196" fill="none" stroke="#fff" stroke-width="10"/>
+  <g transform="translate(71 108) scale(1.85)">
+    <circle cx="39" cy="94" r="12" fill="#fde0cf" stroke="#e3b29b" stroke-width="2"/>
+    <circle cx="161" cy="94" r="12" fill="#fde0cf" stroke="#e3b29b" stroke-width="2"/>
+    <ellipse cx="100" cy="88" rx="62" ry="60" fill="#fde0cf" stroke="#e3b29b" stroke-width="2"/>
+    <path d="M39 80 Q36 28 100 25 Q164 28 161 80 Q154 58 138 50 Q104 62 64 46 Q46 58 39 80 Z" fill="#e9a54b"/>
+    <path d="M58 50 Q66 10 118 12 Q150 14 156 46 Q132 28 106 36 Q86 42 76 58 Z" fill="#f6c779" stroke="#e9a54b" stroke-width="2"/>
+    <path d="M64 75 q11 -7 22 -1" fill="none" stroke="#d39a4d" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M114 74 q11 -6 22 1" fill="none" stroke="#d39a4d" stroke-width="3.5" stroke-linecap="round"/>
+    <ellipse cx="76" cy="92" rx="12" ry="13.5" fill="#fff" stroke="#c9a08c" stroke-width="1.5"/>
+    <circle cx="76" cy="93" r="8.5" fill="#4f9bd9"/><circle cx="76" cy="93" r="4.2" fill="#12283a"/>
+    <circle cx="79" cy="89.5" r="2.6" fill="#fff"/>
+    <ellipse cx="124" cy="92" rx="12" ry="13.5" fill="#fff" stroke="#c9a08c" stroke-width="1.5"/>
+    <circle cx="124" cy="93" r="8.5" fill="#4f9bd9"/><circle cx="124" cy="93" r="4.2" fill="#12283a"/>
+    <circle cx="127" cy="89.5" r="2.6" fill="#fff"/>
+    <circle cx="58" cy="113" r="11" fill="#f8a996" opacity=".55"/>
+    <circle cx="142" cy="113" r="11" fill="#f8a996" opacity=".55"/>
+    <g fill="#d58a5f">
+      <circle cx="100" cy="101" r="1.7"/><circle cx="88" cy="106" r="1.7"/><circle cx="94" cy="110" r="1.7"/>
+      <circle cx="106" cy="110" r="1.7"/><circle cx="112" cy="106" r="1.7"/><circle cx="82" cy="111" r="1.7"/>
+      <circle cx="118" cy="111" r="1.7"/><circle cx="72" cy="107" r="1.7"/><circle cx="128" cy="107" r="1.7"/>
+      <circle cx="64" cy="103" r="1.7"/><circle cx="136" cy="103" r="1.7"/><circle cx="77" cy="115" r="1.7"/>
+      <circle cx="123" cy="115" r="1.7"/>
+    </g>
+    <path d="M96 103 q4 5 8 0" fill="none" stroke="#dc9d80" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M76 119 Q100 127 124 119 Q117 141 100 141 Q83 141 76 119 Z" fill="#8a2c2c" stroke="#6d1f1f" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M79 122 Q100 129 121 122 L119 128 Q100 134 81 128 Z" fill="#fff"/>
+    <path d="M91 137 Q100 132 109 137 Q100 142 91 137 Z" fill="#e2777a"/>
+  </g>
+</svg>

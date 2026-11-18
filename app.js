@@ -414,6 +414,29 @@ document.getElementById('smaller').onclick = () => { state.font = Math.max(0, st
 document.getElementById('bigger').onclick = () => { state.font = Math.min(FONT_SIZES.length - 1, state.font + 1); save(); applyLook(); };
 document.getElementById('theme').onclick = () => { state.theme = state.theme === 'night' ? 'day' : 'night'; save(); applyLook(); };
 
+// Full screen in the browser (e.g. Amazon Kids, which can't add a home-screen app).
+// Opened from the home screen, the manifest already makes it full screen, so the button hides.
+const fsBtn = document.getElementById('fullscreen');
+const root = document.documentElement;
+const fsElement = () => document.fullscreenElement || document.webkitFullscreenElement;
+const fsAvailable = (document.fullscreenEnabled || document.webkitFullscreenEnabled) &&
+  !matchMedia('(display-mode: fullscreen), (display-mode: standalone)').matches;
+function syncFullscreen() {
+  const on = !!fsElement();
+  fsBtn.textContent = on ? '🗗' : '⛶';
+  fsBtn.setAttribute('aria-label', on ? 'Leave full screen' : 'Full screen');
+}
+if (fsAvailable) {
+  fsBtn.hidden = false;
+  fsBtn.onclick = () => {
+    if (fsElement()) (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+    else (root.requestFullscreen || root.webkitRequestFullscreen).call(root)?.catch?.(() => {});
+  };
+  document.addEventListener('fullscreenchange', syncFullscreen);
+  document.addEventListener('webkitfullscreenchange', syncFullscreen);
+  syncFullscreen();
+}
+
 Buddy.setName(READER);
 Buddy.setStars(totalStars());
 applyLook();
