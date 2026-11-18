@@ -1,5 +1,7 @@
 # Not part of the site: tooling, config, and local-only files.
 tools
+.git
+.gitignore
 .claude
 .wrangler
 node_modules
