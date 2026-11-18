@@ -1,0 +1,19 @@
+{
+	// Cloudflare Worker: static assets only (no script). Serves the app straight
+	// from the project folder; .assetsignore keeps the TTS models and dev pages out.
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "story-time",
+	"compatibility_date": "2026-09-01",
+	// One way in: the custom domain. No workers.dev or preview URLs.
+	"routes": [
+		{
+			"pattern": "story.davecunnington.com",
+			"custom_domain": true
+		}
+	],
+	"workers_dev": false,
+	"preview_urls": false,
+	"assets": {
+		"directory": "./"
+	}
+}

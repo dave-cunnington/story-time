@@ -1,0 +1,9 @@
+node_modules/
+.wrangler/
+.dev.vars
+.DS_Store
+
+# Kokoro TTS: the venv and the model files (kokoro-v1.0.onnx, voices-v1.0.bin,
+# ~350 MB) are local only. Put the models in tools/tts/models/ to record audio.
+tools/tts/.venv/
+tools/tts/models/

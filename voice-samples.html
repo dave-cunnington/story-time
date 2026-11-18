@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Voice samples</title>
+<style>
+  body { font-family: system-ui, sans-serif; font-size: 18px; max-width: 720px; margin: 0 auto; padding: 24px 16px; background: #eef3f8; color: #141414; }
+  h1 { margin: 0 0 4px; }
+  .voice { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 14px; margin: 12px 0; background: #fff; border: 3px solid #0a0a0a; border-left: 12px solid #fcb514; border-radius: 16px; }
+  .voice b { flex: 1 1 200px; font-size: 20px; }
+  .voice small { display: block; font-weight: 400; color: #5b6470; }
+  button { font: inherit; font-weight: 800; padding: 10px 14px; border-radius: 12px; border: 2px solid #0a0a0a; background: #fcb514; cursor: pointer; }
+</style>
+</head>
+<body>
+<h1>Voice samples</h1>
+<p>Tap to listen. “Word” says <i>friction</i>, “Meaning” says its meaning, and “Tiny word” says <i>the</i>.</p>
+<div id="list"></div>
+<script>
+  const VOICES = [
+    ['af_heart', 'Heart', 'American woman, warm'],
+    ['af_bella', 'Bella', 'American woman, bright'],
+    ['af_nicole', 'Nicole', 'American woman, soft and slow'],
+    ['am_michael', 'Michael', 'American man, calm'],
+    ['am_puck', 'Puck', 'American man, lively'],
+    ['am_fenrir', 'Fenrir', 'American man, deeper'],
+    ['bf_emma', 'Emma', 'British woman'],
+    ['bm_george', 'George', 'British man'],
+  ];
+  let playing;
+  function play(file) {
+    playing?.pause();
+    playing = new Audio('voice-samples/' + file + '.mp3');
+    playing.play();
+  }
+  document.getElementById('list').innerHTML = VOICES.map(([id, name, about]) => `<div class="voice">
+      <b>${name}<small>${about}</small></b>
+      <button onclick="play('${id}-word')">Word</button>
+      <button onclick="play('${id}-meaning')">Meaning</button>
+      <button onclick="play('${id}-short')">Tiny word</button>
+    </div>`).join('');
+</script>
+</body>
+</html>

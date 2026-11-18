@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lincoln’s Story Time</title>
+<link rel="icon" id="favicon" href="data:,">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header id="bar">
+  <button id="back" class="icon" aria-label="Back">←</button>
+  <h1 id="heading">Lincoln’s Story Time</h1>
+  <div id="tools">
+    <button id="smaller" class="icon" aria-label="Smaller text">A−</button>
+    <button id="bigger" class="icon" aria-label="Bigger text">A+</button>
+    <button id="theme" class="icon" aria-label="Day or night">🌙</button>
+  </div>
+</header>
+
+<main id="view"></main>
+
+<div id="wordbar" hidden>
+  <span id="wordbar-word"></span>
+  <button id="wordbar-again" class="wordbar-btn" aria-label="Say it again">🔊 Again</button>
+  <button id="wordbar-means" class="wordbar-btn" aria-label="What does it mean?">💡 Meaning</button>
+  <button id="wordbar-close" class="icon" aria-label="Close">✕</button>
+  <p id="wordbar-meaning" aria-live="polite" hidden></p>
+</div>
+
+<script src="buddy.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

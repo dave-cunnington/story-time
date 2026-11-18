@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Story Time sound check</title>
+<style>
+  body { font-family: system-ui, sans-serif; font-size: 20px; max-width: 640px; margin: 0 auto; padding: 24px 16px; }
+  button { font: inherit; font-size: 24px; padding: 18px 24px; border-radius: 14px; border: 0; background: #d9622b; color: #fff; font-weight: 700; margin: 6px 6px 6px 0; }
+  .ok { color: #2e8b57; } .no { color: #c0392b; }
+  li { margin-bottom: 4px; }
+</style>
+</head>
+<body>
+<h1>Sound check</h1>
+<p>Open this page on the tablet. It checks whether the tablet's browser can say words out loud.</p>
+<p id="status"></p>
+<p>
+  <button data-say="adventure">Say “adventure”</button>
+  <button data-say="Reddy Fox lived with Granny Fox.">Say a sentence</button>
+</p>
+<p id="heard">Turn the volume up, tap a button, and listen.</p>
+<h2>Voices on this tablet</h2>
+<ul id="voices"><li>Looking…</li></ul>
+<p><a href="index.html">Back to Story Time</a></p>
+<script>
+  const status = document.getElementById('status');
+  const list = document.getElementById('voices');
+  const ok = 'speechSynthesis' in window;
+  status.className = ok ? 'ok' : 'no';
+  status.textContent = ok
+    ? '✓ This browser has a speech feature. Tap a button to make sure you can hear it.'
+    : '✗ This browser has no speech feature. Tap-to-hear will need recorded audio instead.';
+
+  function listVoices() {
+    const voices = speechSynthesis.getVoices();
+    list.innerHTML = voices.length
+      ? voices.map((v) => `<li>${v.name} (${v.lang})</li>`).join('')
+      : '<li>None found yet. If speech still works, that is fine.</li>';
+  }
+  if (ok) {
+    listVoices();
+    speechSynthesis.addEventListener?.('voiceschanged', listVoices);
+    document.querySelectorAll('[data-say]').forEach((b) => {
+      b.onclick = () => {
+        speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(b.dataset.say);
+        u.lang = 'en-US';
+        u.rate = 0.8;
+        const heard = document.getElementById('heard');
+        u.onstart = () => { heard.textContent = 'Speaking now…'; };
+        u.onend = () => { heard.textContent = 'Finished speaking. If you heard it, tap-to-hear will work.'; };
+        u.onerror = (e) => { heard.textContent = 'The browser reported a speech error: ' + e.error; };
+        speechSynthesis.speak(u);
+      };
+    });
+  } else {
+    list.innerHTML = '<li>Not available.</li>';
+  }
+</script>
+</body>
+</html>

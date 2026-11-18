@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "story-time",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "4387"],
+      "port": 4387
+    },
+    {
+      "name": "story-time-worker",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["wrangler", "dev", "--port", "8799"],
+      "port": 8799
+    }
+  ]
+}

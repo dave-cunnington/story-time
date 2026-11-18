@@ -1,0 +1,15 @@
+# Not part of the site: tooling, config, and local-only files.
+tools
+.claude
+.wrangler
+node_modules
+wrangler.jsonc
+package.json
+package-lock.json
+.assetsignore
+.DS_Store
+
+# Dev pages for choosing voices and testing speech.
+speech-test.html
+voice-samples.html
+voice-samples
